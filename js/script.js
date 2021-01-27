@@ -73,8 +73,12 @@ let quotes = [
 /***
  * `getRandomQuote` function
 ***/
+const getRandomQuote = () => {
 
-
+  // Generate a number between 0 and the length of the quotes array and return it
+  let randomNum = Math.floor(Math.random() * quotes.length);
+  return quotes[randomNum];
+}
 
 /***
  * `printQuote` function
