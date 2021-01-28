@@ -100,18 +100,8 @@ const printQuote = () => {
   // Run getRandomQuote() function to randomly select an object from the quotes array
   let item = getRandomQuote();
 
-  let quote = document.querySelector('.quote');
-  let source = document.querySelector('.source');
-
   // Change the background color of the page
   changeBG();
-
-  // Update the HTML to reflect the properties of the selected object
-  quote.innerHTML = `${item.quote}`;
-  source.innerHTML = `${item.source}
-                      <span class="citation"> ${ item.citation } </span>
-                      <span class="year"> ${ item.year } </span>
-                      <h6> Tags: ${ item.tags[0] } ${ item.tags[1] } </h6>`;
 }
 
 // Automatically refresh the page every 5 seconds
