@@ -83,6 +83,7 @@ const getRandomQuote = () => {
 // This function generates a random number between 0 and 255, can be used to randomize colors
 const random255 = () => Math.floor(Math.random() * 256);
 
+// This function changes the background color of the body element 
 const changeBG = () => {
   let body = document.querySelector('body');
 
@@ -113,7 +114,11 @@ const printQuote = () => {
                       <h6> Tags: ${ item.tags[0] } ${ item.tags[1] } </h6>`;
 }
 
+// Automatically refresh the page every 5 seconds
+const refreshPage = () => setInterval(printQuote, 5000);
+
 printQuote();
+refreshPage();
 
 /***
  * click event listener for the print quote button
