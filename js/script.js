@@ -61,7 +61,7 @@ let quotes = [
     tags: ['pixar', 'film']
   },
   {
-    quote: `Do not be dismayed by the brokenness of the world. All things break. And all things can be mended. Not with time, as they say, but with intention. SO go. Love intentionally, extravagantly, unconditionally. The broken world waits in darkness for the light that is you.`,
+    quote: `Do not be dismayed by the brokenness of the world. All things break. And all things can be mended. Not with time, as they say, but with intention. So go. Love intentionally, extravagantly, unconditionally. The broken world waits in darkness for the light that is you.`,
     source: `L. R. Knost`,
     citation: undefined,
     year: undefined,
@@ -74,7 +74,6 @@ let quotes = [
  * `getRandomQuote` function
 ***/
 const getRandomQuote = () => {
-
   // Generate a number between 0 and the length of the quotes array and return it
   let randomNum = Math.floor(Math.random() * quotes.length);
   return quotes[randomNum];
@@ -83,8 +82,12 @@ const getRandomQuote = () => {
 /***
  * `printQuote` function
 ***/
+const printQuote = () => {
+  let item = getRandomQuote();
+  document.querySelector('.quote').innerHTML = item.quote;
+}
 
-
+printQuote();
 
 /***
  * click event listener for the print quote button
