@@ -83,13 +83,15 @@ const getRandomQuote = () => {
 // This function generates a random number between 0 and 255, can be used to randomize colors
 const random255 = () => Math.floor(Math.random() * 256);
 
-// This function changes the background color of the body element 
-const changeBG = () => {
+// This function changes the background color of the page and tags 
+const changeColor = () => {
   let body = document.querySelector('body');
+  let tag1 = document.querySelector('#tag-1');
+  let tag2 = document.querySelector('#tag-2');
 
-  body.style.backgroundColor = `rgb(${random255()},
-                                    ${random255()},
-                                    ${random255()})`;
+  body.style.backgroundColor = `rgb(${random255()}, ${random255()}, ${random255()})`;
+  tag1.style.backgroundColor = `rgb(${random255()}, ${random255()}, ${random255()})`;
+  tag2.style.backgroundColor = `rgb(${random255()}, ${random255()}, ${random255()})`;
 }
 
 /***
@@ -114,14 +116,15 @@ const printQuote = () => {
     html += `<span class="year"> ${ item.year } </span>`;
   }
 
-  html += `<h6>${ item.tags[0] } ${ item.tags[1] }</h6>
+  html += `<h6><span id="tag-1">${ item.tags[0] }</span> 
+          <span id="tag-2">${ item.tags[1] }</span></h6>
            </p>`
 
   // Update content of .quote-box with dynamically generated info         
   container.innerHTML = html;
 
-  // Change the background color of the page
-  changeBG();
+  // Change the color of the page and tags
+  changeColor();
 }
 
 // Automatically refresh the page every 5 seconds
