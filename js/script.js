@@ -21,29 +21,29 @@ let quotes = [
   {
     quote: `The dream was always running ahead of me. To catch up, to live for a moment in unison with it, that was the miracle.`,
     source: `Anais Nin`,
-    citation: undefined,
-    year: undefined,
+    citation: 'Citation unknown',
+    year: 'Year unknown',
     tags: ['literature', 'poetry']
   },
   {
     quote: `Tough times never last, but tough people do.`,
     source: `Robert H. Schuller`,
-    citation: undefined,
-    year: undefined,
+    citation: 'Citation unknown',
+    year: 'Year unknown',
     tags: ['motivation', 'religion']
   },
   {
     quote: `We talkin' about practice?`,
     source: `Allen Iverson`,
-    citation: undefined,
+    citation: 'Citation unknown',
     year: `2002`,
     tags: ['sports', 'basketball']
   },
   {
     quote: `I can't believe what you say because I can see what you do.`,
     source: `James Baldwin`,
-    citation: undefined,
-    year: undefined,
+    citation: 'Citation unknown',
+    year: 'Year unknown',
     tags: ['social justice', 'civil rights']
   },
   {
@@ -63,8 +63,8 @@ let quotes = [
   {
     quote: `Do not be dismayed by the brokenness of the world. All things break. And all things can be mended. Not with time, as they say, but with intention. So go. Love intentionally, extravagantly, unconditionally. The broken world waits in darkness for the light that is you.`,
     source: `L. R. Knost`,
-    citation: undefined,
-    year: undefined,
+    citation: 'Citation unknown',
+    year: 'Year unknown',
     tags: ['motivation', 'healing']
   }
 ];
@@ -84,7 +84,15 @@ const getRandomQuote = () => {
 ***/
 const printQuote = () => {
   let item = getRandomQuote();
-  document.querySelector('.quote').innerHTML = item.quote;
+
+  let quote = document.querySelector('.quote');
+  let source = document.querySelector('.source');
+  let citation = document.querySelector('.citation');
+
+  quote.innerHTML = item.quote;
+  source.innerHTML = `${item.source}
+                      <span class="citation"> ${ item.citation } </span>
+                      <span class="year"> ${ item.year } </span>`;
 }
 
 printQuote();
@@ -94,4 +102,4 @@ printQuote();
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-// document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
