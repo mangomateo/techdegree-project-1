@@ -21,29 +21,29 @@ let quotes = [
   {
     quote: `The dream was always running ahead of me. To catch up, to live for a moment in unison with it, that was the miracle.`,
     source: `Anais Nin`,
-    citation: 'Citation unknown',
-    year: 'Year unknown',
+    citation: undefined,
+    year: undefined,
     tags: ['literature', 'poetry']
   },
   {
     quote: `Tough times never last, but tough people do.`,
     source: `Robert H. Schuller`,
-    citation: 'Citation unknown',
-    year: 'Year unknown',
+    citation: undefined,
+    year: undefined,
     tags: ['motivation', 'religion']
   },
   {
     quote: `We talkin' about practice?`,
     source: `Allen Iverson`,
-    citation: 'Citation unknown',
+    citation: undefined,
     year: `2002`,
     tags: ['sports', 'basketball']
   },
   {
     quote: `I can't believe what you say because I can see what you do.`,
     source: `James Baldwin`,
-    citation: 'Citation unknown',
-    year: 'Year unknown',
+    citation: undefined,
+    year: undefined,
     tags: ['social justice', 'civil rights']
   },
   {
@@ -63,8 +63,8 @@ let quotes = [
   {
     quote: `Do not be dismayed by the brokenness of the world. All things break. And all things can be mended. Not with time, as they say, but with intention. So go. Love intentionally, extravagantly, unconditionally. The broken world waits in darkness for the light that is you.`,
     source: `L. R. Knost`,
-    citation: 'Citation unknown',
-    year: 'Year unknown',
+    citation: undefined,
+    year: undefined,
     tags: ['motivation', 'healing']
   }
 ];
@@ -97,8 +97,28 @@ const changeBG = () => {
 ***/
 const printQuote = () => {
 
+  let html = ``;
+  let container = document.querySelector('.quote-box');
+
   // Run getRandomQuote() function to randomly select an object from the quotes array
   let item = getRandomQuote();
+
+  html += `<p class="quote"> ${ item.quote } </p>
+           <p class="source"> ${ item.source }`;
+  
+  if (item.citation !== undefined) {
+    html += `<span class="citation"> ${ item.citation } </span>`;
+  }
+
+  if (item.year !== undefined) {
+    html += `<span class="year"> ${ item.year } </span>`;
+  }
+
+  html += `<h6>${ item.tags[0] } ${ item.tags[1] }</h6>
+           </p>`
+
+  // Update content of .quote-box with dynamically generated info         
+  container.innerHTML = html;
 
   // Change the background color of the page
   changeBG();
