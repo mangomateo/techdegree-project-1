@@ -74,25 +74,43 @@ let quotes = [
  * `getRandomQuote` function
 ***/
 const getRandomQuote = () => {
+
   // Generate a number between 0 and the length of the quotes array and return it
   let randomNum = Math.floor(Math.random() * quotes.length);
   return quotes[randomNum];
+}
+
+// This function generates a random number between 0 and 255, can be used to randomize colors
+const random255 = () => Math.floor(Math.random() * 256);
+
+const changeBG = () => {
+  let body = document.querySelector('body');
+
+  body.style.backgroundColor = `rgb(${random255()},
+                                    ${random255()},
+                                    ${random255()})`;
 }
 
 /***
  * `printQuote` function
 ***/
 const printQuote = () => {
+
+  // Run getRandomQuote() function to randomly select an object from the quotes array
   let item = getRandomQuote();
 
   let quote = document.querySelector('.quote');
   let source = document.querySelector('.source');
-  let citation = document.querySelector('.citation');
 
-  quote.innerHTML = item.quote;
+  // Change the background color of the page
+  changeBG();
+
+  // Update the HTML to reflect the properties of the selected object
+  quote.innerHTML = `${item.quote}`;
   source.innerHTML = `${item.source}
                       <span class="citation"> ${ item.citation } </span>
-                      <span class="year"> ${ item.year } </span>`;
+                      <span class="year"> ${ item.year } </span>
+                      <h6> Tags: ${ item.tags[0] } ${ item.tags[1] } </h6>`;
 }
 
 printQuote();
